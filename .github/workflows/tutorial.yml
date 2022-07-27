@@ -2,7 +2,7 @@ name: Build and Push Docker Image
 on: # 처음의 on은 해당 action이 수행될 조건을 의미한다. 그렇기때문에 merge하거나 main branch에 직접 push하면 해당 action이 trigger된다.
   push:
     branches:
-      - test
+      - main
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
