@@ -1,4 +1,4 @@
-rom flask import Flask, request
+from flask import Flask, request
 from flask_restful import Resource, Api
 
 app = Flask(__name__)
@@ -6,7 +6,7 @@ api = Api(app)
 
 class Greeting (Resource):
    def get(self):
-      return { "message" : "Wow, I'm the bbak bbak i ajosi ya" }
+      return { "message" : "Wow, I'm MLOtaku ya" }
 api.add_resource(Greeting, '/') # Route_1
 
 if __name__ == '__main__':
