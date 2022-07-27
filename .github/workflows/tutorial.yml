@@ -2,13 +2,13 @@ name: Build and Push Docker Image
 on: # 처음의 on은 해당 action이 수행될 조건을 의미한다. 그렇기때문에 merge하거나 main branch에 직접 push하면 해당 action이 trigger된다.
   push:
     branches:
-      - main
+      - test
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/cehckout@v2 
+      uses: actions/checkout@v2 
       # job은 pipelined을 구성하는 부분이다
       # steps 처음을 보면 "name:Checkout"부분에 uses:actions/checkout@v2로 되어 있는데
       # 이는 github action으로 정의된 모듈이다.
@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: seungkyua/tks-contract:latest
+        tags: tykimreviewty/testing:latest
         # docker image를 build하고 push하는 부분이다. 이미지 name과 tag는 tags로 지정했다.
         # Dockerfile의 위치 및 파일명은 file 키로 변경할 수 잇다.
         # 아무런 지정을 하지 않으면 해당 프로젝트 디렉토리에 있는 Dockerfile을 찾는다.
