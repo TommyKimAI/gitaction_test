@@ -15,11 +15,11 @@ jobs:
       # 해당 기능은 디폴트로 action이 수행되는 github repository의 소스 (현재 project의 소스)를 내려받는다
       # 내려받을 repository를 바꿀려면 변경가능하다.
     - name: Set up Docker buildx
-      uses: docker/setup-buildx-action@v1
+      uses: docker/setup-buildx-action@v2
       # builder driver나 platform 등을 세팅하는 부분이다
     
     - name: Login to DockerHub
-      uses: docker/login-action@v1
+      uses: docker/login-action@v2
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -27,7 +27,7 @@ jobs:
         # github repository의 settings로 들어가서 좌측 하단의 secrets>>Action에서 Action용 secret을 만들어야 한다
     - name: Build and push
       id: docker_build
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v3
       with:
         push: true
         tags: tykimreviewty/testing:latest
